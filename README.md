@@ -1,8 +1,8 @@
 Regra de Nomenclatura para Binários do Carregador Rockchip
 
 Regra Geral: Independentemente de ser um módulo único ou um carregador integrado, a convenção de nomenclatura é:
-
-[chip]_[módulo]_[recurso]_[versão].[sufixo]
+> [!TIP]
+> **[chip]_[módulo]_[recurso]_[versão].[sufixo]**
 
 * **chip:** Nome do chip ou família de chips, obrigatório, consistente com os nomes em todos os drivers do kernel/uboot. Convenções de nomenclatura específicas não são discutidas aqui. Minúsculas.
 
@@ -23,20 +23,23 @@ rk3228_ddr3_800MHz_v1.06.bin
 Regras Especiais:
 
 1. Nomenclatura do carregador resultante:
-    
-    >[!loader]
-    >Um carregador resultante da fusão de ddrbin, usbplug e miniloader, utilizável na ferramenta de atualização do Windows RK;
-    
-    >[!ubootloader]
-    >Um carregador resultante da fusão de ddrbin, usbplug e U-Boot, utilizável na ferramenta de atualização do Windows RK;
-    
-    >[!idbloader]
-    >Um binário resultante da fusão de ddrbin e do carregador de primeiro nível (miniloader ou uboot) no formato IDB, usado diretamente para gravação na área IDB;
-    
-    >[!Nota]
-    >O nome do miniloader indica apenas a saída binária da compilação do projeto do miniloader e não será usado no carregador integrado;
+> [!NOTE]
+> **loader**
+> Um carregador resultante da fusão de ddrbin, usbplug e miniloader, utilizável na ferramenta de atualização do Windows RK;
 
-2. Definição da versão do carregador integrado:
+> [!NOTE]
+> **ubootloader**
+> Um carregador resultante da fusão de ddrbin, usbplug e U-Boot, utilizável na ferramenta de atualização do Windows RK;
+
+> [!NOTE]
+> **idbloader**
+> Um binário resultante da fusão de ddrbin e do carregador de primeiro nível (miniloader ou uboot) no formato IDB, usado diretamente para gravação na área IDB;
+
+> [!NOTE]
+> **Nota**
+> O nome do miniloader indica apenas a saída binária da compilação do projeto do miniloader e não será usado no carregador integrado;
+
+3. Definição da versão do carregador integrado:
     
         vx.yy.zzz
         
@@ -47,13 +50,18 @@ Regras Especiais:
     zzz: [1] é o número da versão do arquivo fornecido pelo miniloader, em minúsculas, sem o ponto.
          [2] é o número da versão fornecido pelo uboot.
 
-3. Se o uso de minúsculas causar ambiguidade, use maiúsculas.
+4. Se o uso de minúsculas causar ambiguidade, use maiúsculas.
     
     Por exemplo, GB para ddr não pode ser escrito como gb.
         
-        Exemplo: O carregador combinado tem o seguinte nome:
-        rk3328_loader_v1.03.106.bin
+    Exemplo: O carregador combinado tem o seguinte nome:
+    
+       rk3328_loader_v1.03.106.bin
         
     1.03 é o número da versão da DDR, v1.03.
     
     106 é o número da versão do miniloader, v1.06, sem o ponto.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
+
